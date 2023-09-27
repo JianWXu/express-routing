@@ -15,27 +15,27 @@ function median(...n) {
     : (sorted[mid - 1] + sorted[mid]) / 2;
 }
 
-function mode(...n){
-    let arr = [...n];
-    const obj = {};
-    arr.forEach(n=>{
-        if(!obj[n]){
-            obj[n]=1;
-        }else{
-            obj[n]+=1;
-        }
-    })
-    let highestValue = 0;
-    let highestValueKey = -Infinity;
-
-    for (let key in obj){
-        const value = obj[key];
-        if(value > highestValue){
-            highestValue = value;
-            highestValueKey=key;
-        }
+function mode(...n) {
+  let arr = [...n];
+  const obj = {};
+  arr.forEach((n) => {
+    if (!obj[n]) {
+      obj[n] = 1;
+    } else {
+      obj[n] += 1;
     }
-    return Number(highestValueKey);
+  });
+  let highestValue = 0;
+  let highestValueKey = -Infinity;
+
+  for (let key in obj) {
+    const value = obj[key];
+    if (value > highestValue) {
+      highestValue = value;
+      highestValueKey = key;
+    }
+  }
+  return Number(highestValueKey);
 }
 
-module.exports = {mean, median, mode};
+module.exports = { mean, median, mode };
